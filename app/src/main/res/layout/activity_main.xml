@@ -34,10 +34,11 @@
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="342dp"
+        android:layout_height="95dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/horizontalScrollView">
+        android:layout_below="@+id/horizontalScrollView"
+        android:id="@+id/horizontalScrollView2">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -122,5 +123,14 @@
                 app:srcCompat="@drawable/backpack_2" />
         </LinearLayout>
     </HorizontalScrollView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/horizontalScrollView2" >
+
+    </ListView>
 
 </RelativeLayout>
