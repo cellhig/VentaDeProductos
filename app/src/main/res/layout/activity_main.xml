@@ -33,15 +33,15 @@
         app:layout_constraintTop_toTopOf="parent" />-->
 
     <!-- lista de imagenes random -->
-    <ListView
+    <!--<ListView
         android:id="@+id/listViewImagesrandom"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal">
-    </ListView>
+    </ListView>-->
 
     <!-- horizontalScrollVew Imagenes de productos aleatoria -->
-    <!--<HorizontalScrollView
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/horizontalScrollView">
@@ -57,30 +57,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/iphone_1" />
+                app:srcCompat="@drawable/guitarra_valencia_negra_vc154bk" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/basketball_1" />
+                app:srcCompat="@drawable/audifonos_quiet_comfort35" />
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/computer_pc_2" />
+                app:srcCompat="@drawable/traje_de_bano" />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/backpack_2" />
+                app:srcCompat="@drawable/consola_play_station4_slim" />
         </LinearLayout>
-    </HorizontalScrollView>-->
+    </HorizontalScrollView>
 
     <!-- horizontalScrollVew botones categorías -->
     <HorizontalScrollView
@@ -88,7 +88,7 @@
         android:layout_height="95dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/listViewImagesrandom"
+        android:layout_below="@+id/horizontalScrollView"
         android:id="@+id/horizontalScrollView2">
 
         <LinearLayout

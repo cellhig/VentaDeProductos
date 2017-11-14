@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.higom.edpdm.ventadeproductos.ProductActivity">-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,6 +27,9 @@
         android:id="@+id/textViewProductoDetalle"
         android:layout_width="385dp"
         android:layout_height="239dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageViewProducto"
         android:text="@string/text1"
         app:layout_constraintBottom_toTopOf="@+id/buttonComprar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +41,9 @@
         android:id="@+id/buttonComprar"
         android:layout_width="157dp"
         android:layout_height="67dp"
+        android:layout_below="@+id/textViewProductoDetalle"
+        android:layout_centerHorizontal="true"
         android:text="Comprar"
         tools:layout_editor_absoluteX="116dp"
         tools:layout_editor_absoluteY="445dp" />
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

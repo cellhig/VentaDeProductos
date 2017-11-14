@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ListView tecnologia;
     ListView productImages;
+    ListView products;
 
     String productosTecnologia[] = {"Computador","iPhone","Camara Web", "play station 4", "Xbox One"};
 
@@ -31,9 +32,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new Images(R.drawable.ic_launcher_background)
         };
 
-        ImagesAdapter imagesAdapter = new ImagesAdapter(this, R.layout.listview_item_row, imagesList);
+        Products productsData[] = new Products[] {
+                new Products(R.drawable.ic_launcher_background, "producto1"),
+                new Products(R.drawable.ic_launcher_background, "producto2"),
+                new Products(R.drawable.ic_launcher_background, "producto3"),
+                new Products(R.drawable.ic_launcher_background, "producto4"),
+                new Products(R.drawable.ic_launcher_background, "producto5"),
+        };
+
+        // adaptador de images para un listView de solo imagenes
+        /*ImagesAdapter imagesAdapter = new ImagesAdapter(this, R.layout.listview_item_images_row, imagesList);
         productImages = (ListView) findViewById(R.id.imageItemRandom);
-        productImages.setAdapter(imagesAdapter);
+        productImages.setAdapter(imagesAdapter);*/
 
        tecnologia = (ListView) findViewById(R.id.listView);
 
