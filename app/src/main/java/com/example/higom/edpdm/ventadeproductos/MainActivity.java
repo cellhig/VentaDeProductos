@@ -1,5 +1,6 @@
 package com.example.higom.edpdm.ventadeproductos;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,15 +14,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6;
 
     ListView tecnologia;
+    ListView productImages;
 
     String productosTecnologia[] = {"Computador","iPhone","Camara Web", "play station 4", "Xbox One"};
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tecnologia = (ListView) findViewById(R.id.listView);
+        Images imagesList[] = new Images[]{
+                new Images(R.drawable.ic_launcher_background),
+                new Images(R.drawable.ic_launcher_background),
+                new Images(R.drawable.ic_launcher_background),
+                new Images(R.drawable.ic_launcher_background)
+        };
+
+        ImagesAdapter imagesAdapter = new ImagesAdapter(this, R.layout.listview_item_row, imagesList);
+        productImages = (ListView) findViewById(R.id.imageItemRandom);
+        productImages.setAdapter(imagesAdapter);
+
+       tecnologia = (ListView) findViewById(R.id.listView);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,productosTecnologia);
 

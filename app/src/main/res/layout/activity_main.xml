@@ -32,12 +32,63 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />-->
 
+    <!-- lista de imagenes random -->
+    <ListView
+        android:id="@+id/listViewImagesrandom"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
+    </ListView>
+
+    <!-- horizontalScrollVew Imagenes de productos aleatoria -->
+    <!--<HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/horizontalScrollView">
+
+        <LinearLayout
+            android:id="@+id/linearImages"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/iphone_1" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/basketball_1" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/computer_pc_2" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/backpack_2" />
+        </LinearLayout>
+    </HorizontalScrollView>-->
+
+    <!-- horizontalScrollVew botones categorías -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="95dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/horizontalScrollView"
+        android:layout_below="@+id/listViewImagesrandom"
         android:id="@+id/horizontalScrollView2">
 
         <LinearLayout
@@ -83,47 +134,7 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/horizontalScrollView">
-
-        <LinearLayout
-            android:id="@+id/linearImages"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/iphone_1" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/basketball_1" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/computer_pc_2" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/backpack_2" />
-        </LinearLayout>
-    </HorizontalScrollView>
-
+    <!-- lista de productos-->
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
