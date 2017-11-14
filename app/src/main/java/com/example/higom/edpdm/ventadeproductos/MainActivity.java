@@ -4,16 +4,28 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6;
 
+    ListView tecnologia;
+
+    String productosTecnologia[] = {"Computador","iPhone","Camara Web", "play station 4", "Xbox One"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tecnologia = (ListView) findViewById(R.id.listView);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,productosTecnologia);
+
+        tecnologia.setAdapter(adapter);
 
         Intent intent = getIntent();
 
