@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         productImages.setAdapter(imagesAdapter);*/
 
         //adaptador de productos con su titulo
-        ProductsAdapter adapter = new ProductsAdapter(this, R.layout.listview_item_products_row, productsData);
+        /*ProductsAdapter adapter = new ProductsAdapter(this, R.layout.listview_item_products_row, productsData);
         products = (ListView) findViewById(R.id.listView);
         View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
         products.addHeaderView(header);
-        products.setAdapter(adapter);
+        products.setAdapter(adapter);*/
 
         //adaptador sencillo de datos estaticos
        /*tecnologia = (ListView) findViewById(R.id.listView);
@@ -59,17 +59,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = getIntent();
 
-        btn1 = (ImageButton) findViewById(R.id.imageButton1);
+        btn1 = (ImageButton) findViewById(R.id.imageButtonElectrodomesticos);
         btn1.setOnClickListener(this);
-        btn2 = (ImageButton) findViewById(R.id.imageButton2);
+        btn2 = (ImageButton) findViewById(R.id.imageButtonRopa);
         btn2.setOnClickListener(this);
-        btn3 = (ImageButton) findViewById(R.id.imageButton3);
+        btn3 = (ImageButton) findViewById(R.id.imageButtonLibros);
         btn3.setOnClickListener(this);
-        btn4 = (ImageButton) findViewById(R.id.imageButton4);
+        btn4 = (ImageButton) findViewById(R.id.imageButtonComputacion);
         btn4.setOnClickListener(this);
-        btn5 = (ImageButton) findViewById(R.id.imageButton5);
+        btn5 = (ImageButton) findViewById(R.id.imageButtonBelleza);
         btn5.setOnClickListener(this);
-        btn6 = (ImageButton) findViewById(R.id.imageButton6);
+        btn6 = (ImageButton) findViewById(R.id.imageButtonMusica);
         btn6.setOnClickListener(this);
 
     }
@@ -78,29 +78,79 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
 
-            case R.id.imageButton1:
-                Intent intent1 = new Intent(MainActivity.this,ProductActivity.class);
-                startActivity(intent1);
+            case R.id.imageButtonElectrodomesticos:
+                /*Intent intent1 = new Intent(MainActivity.this,ProductActivity.class);
+                startActivity(intent1);*/
+
+                Products ElectrodomesticosArray[] = new Products[] {
+                        new Products(R.drawable.led_55_uhd_smarttv, "LED 55\" UHD Smart TV | KD55X727E"),
+                        new Products(R.drawable.consola_play_station4_slim, "Consola Playstation 4 Slim 1tb Con 1 Control Ps4 1000gb"),
+                        new Products(R.drawable.nevecon_whirlpool_side_by_side_680_lts, "Nevecon Whirlpool Side By Side 680 Lts - Wrs49aktww"),
+                        new Products(R.drawable.videoproyector_powerlite_x29, "Videoproyector Powerlite X29"),
+                        new Products(R.drawable.lavadora_secadora_carga_frontal15_kg, "Lavadora Secadora Carga Frontal 15 kg | WD1577RD"),
+                };
+
+                ProductsAdapter electrodomesticosAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, ElectrodomesticosArray);
+                products = (ListView) findViewById(R.id.listView);
+                /*View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
+                products.addHeaderView(header);*/
+                products.setAdapter(electrodomesticosAdapter);
+
+
                 break;
-            case R.id.imageButton2:
-                Intent intent2 = new Intent(MainActivity.this,ProductActivity.class);
-                startActivity(intent2);
+            case R.id.imageButtonRopa:
+                /*Intent intent2 = new Intent(MainActivity.this,ProductActivity.class);
+                startActivity(intent2);*/
+
+                Products ropaArray[] = new Products[] {
+                        new Products(R.drawable.legging_tiana, "Legging Tiana"),
+                        new Products(R.drawable.chaqueta, "Chaqueta"),
+                        new Products(R.drawable.traje_de_bano, "Traje de baño"),
+                        new Products(R.drawable.vestido, "Vestido"),
+                        new Products(R.drawable.blazer_americana_boreal1, "Blazer Americana Boreal1"),
+                };
+
+                ProductsAdapter ropaAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, ropaArray);
+                products = (ListView) findViewById(R.id.listView);
+                /*View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
+                products.addHeaderView(header);*/
+                products.setAdapter(ropaAdapter);
+
                 break;
-            case R.id.imageButton3:
-                Intent intent3 = new Intent(MainActivity.this,ProductActivity.class);
-                startActivity(intent3);
+            case R.id.imageButtonLibros:
+                /*Intent intent3 = new Intent(MainActivity.this,ProductActivity.class);
+                startActivity(intent3);*/
+
+
+
+
                 break;
-            case R.id.imageButton4:
+            case R.id.imageButtonComputacion:
                 Intent intent4 = new Intent(MainActivity.this,ProductActivity.class);
                 startActivity(intent4);
                 break;
-            case R.id.imageButton5:
+            case R.id.imageButtonBelleza:
                 Intent intent5 = new Intent(MainActivity.this,ProductActivity.class);
                 startActivity(intent5);
                 break;
-            case R.id.imageButton6:
-                Intent intent6 = new Intent(MainActivity.this,ProductActivity.class);
-                startActivity(intent6);
+            case R.id.imageButtonMusica:
+                /*Intent intent6 = new Intent(MainActivity.this,ProductActivity.class);
+                startActivity(intent6);*/
+
+                Products musicaArray[] = new Products[] {
+                        new Products(R.drawable.viola_145_hxzq_03_solid_inland, "Viola 14.5 HXZQ03 Solid Inland"),
+                        new Products(R.drawable.bateria_element_2216_blanco, "Batería Element 22-16 Blanco"),
+                        new Products(R.drawable.guitarra_valencia_negra_vc154bk, "Guitarra Valencia Negra VC154BK"),
+                        new Products(R.drawable.baquetas_trilok_gurtu_astr, "Baquetas Trilok Gurtu ASTR"),
+                        new Products(R.drawable.audifonos_quiet_comfort35, "Audífonos QuietComfort 35"),
+                };
+
+                ProductsAdapter musicaAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, musicaArray);
+                products = (ListView) findViewById(R.id.listView);
+                /*View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
+                products.addHeaderView(header);*/
+                products.setAdapter(musicaAdapter);
+
                 break;
         }
     }
