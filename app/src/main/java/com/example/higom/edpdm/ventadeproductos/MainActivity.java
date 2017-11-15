@@ -45,11 +45,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         productImages = (ListView) findViewById(R.id.imageItemRandom);
         productImages.setAdapter(imagesAdapter);*/
 
-       tecnologia = (ListView) findViewById(R.id.listView);
+        //adaptador de productos con su titulo
+        ProductsAdapter adapter = new ProductsAdapter(this, R.layout.listview_item_products_row, productsData);
+        products = (ListView) findViewById(R.id.listView);
+        View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
+        products.addHeaderView(header);
+        products.setAdapter(adapter);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,productosTecnologia);
-
-        tecnologia.setAdapter(adapter);
+        //adaptador sencillo de datos estaticos
+       /*tecnologia = (ListView) findViewById(R.id.listView);
+       ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,productosTecnologia);
+       tecnologia.setAdapter(adapter);*/
 
         Intent intent = getIntent();
 
