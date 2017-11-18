@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -32,13 +35,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new Images(R.drawable.ic_launcher_background)
         };
 
-        Products productsData[] = new Products[] {
+        /*Products productsData[] = new Products[] {
                 new Products(R.drawable.ic_launcher_background, "producto1"),
                 new Products(R.drawable.ic_launcher_background, "producto2"),
                 new Products(R.drawable.ic_launcher_background, "producto3"),
                 new Products(R.drawable.ic_launcher_background, "producto4"),
                 new Products(R.drawable.ic_launcher_background, "producto5"),
-        };
+        };*/
 
         // adaptador de images para un listView de solo imagenes
         /*ImagesAdapter imagesAdapter = new ImagesAdapter(this, R.layout.listview_item_images_row, imagesList);
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 /*Intent intent1 = new Intent(MainActivity.this,ProductActivity.class);
                 startActivity(intent1);*/
 
-                Products ElectrodomesticosArray[] = new Products[] {
+                final Products ElectrodomesticosArray[] = new Products[] {
                         new Products(R.drawable.led_55_uhd_smarttv, "LED 55\" UHD Smart TV | KD55X727E"),
                         new Products(R.drawable.consola_play_station4_slim, "Consola Playstation 4 Slim 1tb Con 1 Control Ps4 1000gb"),
                         new Products(R.drawable.nevecon_whirlpool_side_by_side_680_lts, "Nevecon Whirlpool Side By Side 680 Lts - Wrs49aktww"),
@@ -90,11 +93,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         new Products(R.drawable.lavadora_secadora_carga_frontal15_kg, "Lavadora Secadora Carga Frontal 15 kg | WD1577RD"),
                 };
 
-                ProductsAdapter electrodomesticosAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, ElectrodomesticosArray);
+                final ProductsAdapter electrodomesticosAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, ElectrodomesticosArray);
                 products = (ListView) findViewById(R.id.listView);
                 /*View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
                 products.addHeaderView(header);*/
                 products.setAdapter(electrodomesticosAdapter);
+
+                products.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TextView msg = (TextView) view.findViewById(R.id.listView);
+
+                        //Intent intent1 = new Intent(MainActivity.this,ProductActivity.class);
+                        //intent1.putExtra("OBJETO", msg.getText());
+                        Toast.makeText(getApplicationContext(),electrodomesticosAdapter.getItem(position).getTittle(),Toast.LENGTH_SHORT).show();
+                        //startActivity(intent1);
+
+                    }
+                });
 
 
                 break;
