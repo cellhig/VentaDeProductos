@@ -26,12 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Images imagesList[] = new Images[]{
-                new Images(R.drawable.ic_launcher_background),
-                new Images(R.drawable.ic_launcher_background),
-                new Images(R.drawable.ic_launcher_background),
-                new Images(R.drawable.ic_launcher_background)
-        };
+
 
         Products productsData[] = new Products[] {
                 new Products(1,R.drawable.led_55_uhd_smarttv, "LED 55\" UHD Smart TV | KD55X727E", "electrodomesticos","Que el entretenimiento cobre protagonismo en tu casa y te embarque junto a tu familia en una experiencia visual sin precedentes, gracias al LED 55\" UHD Smart TV | KD55X727E de Sony, un potente televisor con tecnología 4K HDR que hará que los colores cobren vida para reproducir cada tono y matiz con el realismo que siempre esperaste. Ahora ver series, películas y videos será realmente envolvente.\n" +
