@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,18 +16,16 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6;
-
     ListView tecnologia;
     ListView productImages;
     ListView products;
+    ImageView imageOne, imageTwo, imageThree, imageFour;
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         Products productsData[] = new Products[] {
                 new Products(1,R.drawable.led_55_uhd_smarttv, "LED 55\" UHD Smart TV | KD55X727E", "electrodomesticos","Que el entretenimiento cobre protagonismo en tu casa y te embarque junto a tu familia en una experiencia visual sin precedentes, gracias al LED 55\" UHD Smart TV | KD55X727E de Sony, un potente televisor con tecnología 4K HDR que hará que los colores cobren vida para reproducir cada tono y matiz con el realismo que siempre esperaste. Ahora ver series, películas y videos será realmente envolvente.\n" +
@@ -108,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 products.addHeaderView(header);*/
                 products.setAdapter(electrodomesticosAdapter);
 
+                Toast.makeText(getApplicationContext(),"Categoría: Electrodomésticos", Toast.LENGTH_SHORT).show();
+
                 products.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -145,20 +146,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         new Products(10,R.drawable.blazer_americana_boreal1, "Blazer Americana Boreal1", "ropa", "", 169900)
                 };
 
-                ProductsAdapter ropaAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, ropaArray);
+                final ProductsAdapter ropaAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, ropaArray);
                 products = (ListView) findViewById(R.id.listView);
                 /*View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
                 products.addHeaderView(header);*/
                 products.setAdapter(ropaAdapter);
 
+                Toast.makeText(getApplicationContext(),"Categoría: Ropa", Toast.LENGTH_SHORT).show();
+
+                products.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TextView msg = (TextView) view.findViewById(R.id.listView);
+
+                        Bundle arguments = new Bundle();
+
+                        arguments.putInt("ID", ropaAdapter.getItem(position).getId());
+                        arguments.putInt("ICON", ropaAdapter.getItem(position).getIcon());
+                        arguments.putString("TITTLE", ropaAdapter.getItem(position).getTittle());
+                        arguments.putString("DESCRIPTION", ropaAdapter.getItem(position).getDescription());
+                        arguments.putString("CATEGORY", ropaAdapter.getItem(position).getCategory());
+                        arguments.putInt("PRICE", ropaAdapter.getItem(position).getPrice());
+
+                        Intent intent1 = new Intent(MainActivity.this,ProductActivity.class);
+
+                        intent1.putExtras(arguments);
+                        //Toast.makeText(getApplicationContext(),electrodomesticosAdapter.getItem(position).getTittle(),Toast.LENGTH_SHORT).show();
+                        startActivity(intent1);
+
+                    }
+                });
+
                 break;
             case R.id.imageButtonLibros:
                 /*Intent intent3 = new Intent(MainActivity.this,ProductActivity.class);
                 startActivity(intent3);*/
-
-
-
-
                 break;
             case R.id.imageButtonComputacion:
                 Intent intent4 = new Intent(MainActivity.this,ProductActivity.class);
@@ -182,11 +204,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         new Products(15, R.drawable.audifonos_quiet_comfort35, "Audífonos QuietComfort 35", "musica", "La música suena mejor cuando tienes accesorios como los Audífonos QuietComfort 35 de Bose. Enciéndelos y descubre las nuevas alturas que alcanzará tu música. Canciones plenas y clarasque parecerá que las escuchas por primera vez combinado con una duración excepcional de batería de hasta 20 horas de uso en modo inalámbrico.", 1299900)
                 };
 
-                ProductsAdapter musicaAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, musicaArray);
+                final ProductsAdapter musicaAdapter = new ProductsAdapter(this, R.layout.listview_item_products_row, musicaArray);
                 products = (ListView) findViewById(R.id.listView);
                 /*View header = (View) getLayoutInflater().inflate(R.layout.list_header_products_row, null);
                 products.addHeaderView(header);*/
                 products.setAdapter(musicaAdapter);
+
+                Toast.makeText(getApplicationContext(),"Categoría: Música", Toast.LENGTH_SHORT).show();
+
+                products.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TextView msg = (TextView) view.findViewById(R.id.listView);
+
+                        Bundle arguments = new Bundle();
+
+                        arguments.putInt("ID", musicaAdapter.getItem(position).getId());
+                        arguments.putInt("ICON", musicaAdapter.getItem(position).getIcon());
+                        arguments.putString("TITTLE", musicaAdapter.getItem(position).getTittle());
+                        arguments.putString("DESCRIPTION", musicaAdapter.getItem(position).getDescription());
+                        arguments.putString("CATEGORY", musicaAdapter.getItem(position).getCategory());
+                        arguments.putInt("PRICE", musicaAdapter.getItem(position).getPrice());
+
+                        Intent intent1 = new Intent(MainActivity.this,ProductActivity.class);
+
+                        intent1.putExtras(arguments);
+                        //Toast.makeText(getApplicationContext(),electrodomesticosAdapter.getItem(position).getTittle(),Toast.LENGTH_SHORT).show();
+                        startActivity(intent1);
+
+                    }
+                });
 
                 break;
         }
